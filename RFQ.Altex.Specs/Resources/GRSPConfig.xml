@@ -1,0 +1,17 @@
+<RFQService>
+  <GRSPs>
+    <GRSPConfig>
+      <Venue>iSwapEVSP_Java</Venue>
+      <Product>product01</Product>
+      <Instance>Instance1</Instance>
+      <DisplayName>Sample iSwap RFQ Service Provider</DisplayName>
+      <IBCredentials>
+        <PasswordCredentials>
+          <Username>john_doe</Username>
+          <Password>supersecret</Password>
+        </PasswordCredentials>
+      </IBCredentials>
+      <AutoConnect>true</AutoConnect>
+    </GRSPConfig>
+  </GRSPs>
+</RFQService>

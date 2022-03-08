@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RFQ.Core.Entities.RFQOffer">
+    <Position X="4" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAKAAAAAggAAAAQAAAACgAgAAAQAAAAABAAAAAA=</HashCode>
+      <FileName>Entities\RFQOffer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Owner" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Quotes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="RFQ.Core.Entities.Quote">
+    <Position X="7.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAICAAAAAAIQAAAAEAEACAAAAAAQAAAAABAAAAAA=</HashCode>
+      <FileName>Entities\Quote.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="RFQ" />
+      <Property Name="Owner" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RFQ.Core.Entities.User">
+    <Position X="11" Y="9.5" Width="1.75" />
+    <AssociationLine Name="Organization" Type="RFQ.Core.Entities.Organization" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.5" Y="9.5" />
+        <Point X="11.5" Y="8.799" />
+        <Point X="11.5" Y="8.799" />
+        <Point X="11.5" Y="7.848" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>EAAECAAEAAAAAAAAAQCAAAQChAgAAAYAEAABAAAEIAE=</HashCode>
+      <FileName>Entities\User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Organization" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Quotes" />
+      <Property Name="RFQOffers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="RFQ.Core.Entities.Organization">
+    <Position X="11" Y="4.5" Width="1.75" />
+    <AssociationLine Name="Users" Type="RFQ.Core.Entities.User" FixedFromPoint="true">
+      <Path>
+        <Point X="12.188" Y="7.848" />
+        <Point X="12.188" Y="9.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>EAAACCAAAAAAAAAAAAAAAAYCACgQAAYAAQAAAAAAACE=</HashCode>
+      <FileName>Entities\Organization.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Users" />
+      <Property Name="ConfigurationDetails" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="RFQ.Core.Entities.OrganizationConfiguration">
+    <Position X="7" Y="4.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAgCAAAAAARAgAAAAAAAIAE=</HashCode>
+      <FileName>Entities\OrganizationConfiguration.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Organization" />
+      <Property Name="Configuration" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RFQ.Core.Entities.Configuration">
+    <Position X="2" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>EBCACgAAwgoCIAREBAAAAAQTAAoEAAQACAAQAAGAgAE=</HashCode>
+      <FileName>Entities\Configuration.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Attributes" />
+      <Property Name="OrganizationsConfigurationDetails" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="RFQ.Core.Entities.Attribute">
+    <Position X="7.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAQAAAAAAAAAgAAgAAAAAAA=</HashCode>
+      <FileName>Entities\Attribute.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Configuration" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RFQ.Core.Entities.BrokerGRSP">
+    <Position X="2" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAgCAAACAAAAAAAIAAAIAACAAgAAAQAAAAAAAAAAAE=</HashCode>
+      <FileName>Entities\BrokerGRSP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

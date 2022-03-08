@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{78A18B12-4C52-442A-89CC-245A1283A4C7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RFQ.Core</RootNamespace>
+    <AssemblyName>RFQ.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Magnum, Version=2.1.3.0, Culture=neutral, PublicKeyToken=b800c4cfcdeea87b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Magnum.2.1.3\lib\NET40\Magnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Artifacts\Instrument.cs" />
+    <Compile Include="Entities\Attribute.cs" />
+    <Compile Include="Entities\BrokerSession.cs" />
+    <Compile Include="Entities\InstrumentConfiguration.cs" />
+    <Compile Include="Entities\EntityBase.cs" />
+    <Compile Include="Entities\ITrackable.cs" />
+    <Compile Include="Entities\Organization.cs" />
+    <Compile Include="Entities\OrganizationAdjustment.cs" />
+    <Compile Include="Entities\Quote.Construction.cs" />
+    <Compile Include="Entities\Quote.cs" />
+    <Compile Include="Entities\RFQOffer.Construction.cs" />
+    <Compile Include="Entities\RFQOffer.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\Broker.cs" />
+    <Compile Include="Exceptions\RFQCommunicationException.cs" />
+    <Compile Include="Exceptions\RFQConfigurationException.cs" />
+    <Compile Include="Exceptions\RFQArithmeticException.cs" />
+    <Compile Include="Exceptions\RFQException.cs" />
+    <Compile Include="Exceptions\RFQRuntimeException .cs" />
+    <Compile Include="Factories\ObjectFactory.cs" />
+    <Compile Include="Factories\ObjectActivatorRegistry.cs" />
+    <Compile Include="Management\IMonitor.cs" />
+    <Compile Include="Management\IRepositoryFactory.cs" />
+    <Compile Include="Management\IUnitOfWork.cs" />
+    <Compile Include="Management\IUnitOfWorkFactory.cs" />
+    <Compile Include="Factories\ObjectActivator.cs" />
+    <Compile Include="Options\Error.cs" />
+    <Compile Include="Options\Reason.cs" />
+    <Compile Include="Persistence\IAttributeRepository.cs" />
+    <Compile Include="Persistence\IBrokerRepository.cs" />
+    <Compile Include="Persistence\IConfigurationRepository.cs" />
+    <Compile Include="Persistence\IOrganizationRepository.cs" />
+    <Compile Include="Persistence\IQuoteRepository.cs" />
+    <Compile Include="Persistence\IRepository.cs" />
+    <Compile Include="Persistence\IRFQOfferRepository.cs" />
+    <Compile Include="Persistence\IUserRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ReSharperStaticAnalysis.cs" />
+    <Compile Include="Utils\CoreExtensions.cs" />
+    <Compile Include="Utils\EntityId.cs" />
+    <Compile Include="Management\IValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RFQ.Communication\RFQ.Communication.csproj">
+      <Project>{35074C10-C8FA-4538-8070-9EB3F0F6E246}</Project>
+      <Name>RFQ.Communication</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Entities-model.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

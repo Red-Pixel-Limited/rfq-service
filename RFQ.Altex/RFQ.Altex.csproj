@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34735D81-A23D-4DCA-A705-A9D52988407B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RFQ.Altex</RootNamespace>
+    <AssemblyName>RFQ.Altex</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="lbmcs, Version=4.2.6.0, Culture=neutral, PublicKeyToken=4c79efafe09ede14, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Altex.MsgLib.3.8.2\lib\net40\lbmcs.dll</HintPath>
+    </Reference>
+    <Reference Include="MsgLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Altex.MsgLib.3.8.2\lib\net40\MsgLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AltexCommunicator.cs" />
+    <Compile Include="Handlers\AltexMessageHandler.cs" />
+    <Compile Include="Handlers\IAltexMessageHandler.cs" />
+    <Compile Include="Mappings\IDtoMapper.cs" />
+    <Compile Include="Mappings\IOptionsMapper.cs" />
+    <Compile Include="Mappings\Messages\IAltexMessageMapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mappings\Messages\IOutgoingMessageMapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mappings\Messages\Incoming\GTNHeartbeatMapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mappings\Messages\Incoming\PassRFQMapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mappings\Messages\Outgoing\GTNHeartbeatsSubscriptionMapper.cs" />
+    <Compile Include="Mappings\Options\GRSPStatusMapper.cs" />
+    <Compile Include="Mappings\Options\GTNStatusMapper.cs" />
+    <Compile Include="Mappings\Options\GTNUserSessionStatusMapper.cs" />
+    <Compile Include="Mappings\Options\PriceFormatMapper.cs" />
+    <Compile Include="Mappings\Options\PricePriorityMapper.cs" />
+    <Compile Include="Mappings\Options\PriceMapper.cs" />
+    <Compile Include="Mappings\Options\QuoteStateMapper.cs" />
+    <Compile Include="Mappings\Options\RFQStateMapper.cs" />
+    <Compile Include="Mappings\Options\SizeMagnitudeMapper.cs" />
+    <Compile Include="Mappings\Options\SideMapper.cs" />
+    <Compile Include="Mappings\Options\UpdateActionMapper.cs" />
+    <Compile Include="Utils\AltexUtils.cs" />
+    <Compile Include="Utils\ConfigurationParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\ArgumentsParser.cs" />
+    <Compile Include="Management\AltexMapFactory.cs" />
+    <Compile Include="Management\AltexTypesMatcher.cs" />
+    <Compile Include="Utils\MapperErrors.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\RFQ.Communication\RFQ.Communication.csproj">
+      <Project>{35074C10-C8FA-4538-8070-9EB3F0F6E246}</Project>
+      <Name>RFQ.Communication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RFQ.Core\RFQ.Core.csproj">
+      <Project>{78A18B12-4C52-442A-89CC-245A1283A4C7}</Project>
+      <Name>RFQ.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

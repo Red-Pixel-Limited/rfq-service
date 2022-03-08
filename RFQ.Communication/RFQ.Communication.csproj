@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{35074C10-C8FA-4538-8070-9EB3F0F6E246}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RFQ.Communication</RootNamespace>
+    <AssemblyName>RFQ.Communication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Artifacts\BrokerConfiguration.cs" />
+    <Compile Include="Artifacts\IBFirmCredentials.cs" />
+    <Compile Include="Artifacts\IBUserCredentials.cs" />
+    <Compile Include="Artifacts\BrokersConfigurationCallback.cs" />
+    <Compile Include="DTOs\BrokerConfigurationDTO.cs" />
+    <Compile Include="DTOs\InstrumentAttributeDTO.cs" />
+    <Compile Include="DTOs\ExtensionMessageDTO.cs" />
+    <Compile Include="DTOs\InstrumentStaticDataDTO.cs" />
+    <Compile Include="DTOs\OrganizationMetricsDTO.cs" />
+    <Compile Include="DTOs\OrganizationDTO.cs" />
+    <Compile Include="DTOs\QuoteDTO.cs" />
+    <Compile Include="DTOs\InstrumentConfigurationDTO.cs" />
+    <Compile Include="DTOs\GTNUserSessionDTO.cs" />
+    <Compile Include="DTOs\TradeParticipantDTO.cs" />
+    <Compile Include="DTOs\UserDTO.cs" />
+    <Compile Include="IBusCommunicator.cs" />
+    <Compile Include="Messages\Incoming\GTNErrorEvent.cs" />
+    <Compile Include="Messages\Incoming\GTNEvent.cs" />
+    <Compile Include="Messages\Incoming\GTNRequestFailed.cs" />
+    <Compile Include="Messages\Incoming\GTNSuccessEvent.cs" />
+    <Compile Include="Messages\Incoming\GTNUserSessionCreated.cs" />
+    <Compile Include="Messages\Incoming\GTNUserSessionDisconnected.cs" />
+    <Compile Include="Messages\Incoming\GTNUserSessionDestroyed.cs" />
+    <Compile Include="Messages\Incoming\GTNUserSessionExists.cs" />
+    <Compile Include="Messages\Incoming\InstrumentStaticDataResponse.cs" />
+    <Compile Include="Messages\Incoming\LoginFailed.cs" />
+    <Compile Include="Messages\Incoming\RemoveInstrumentConfiguration.cs" />
+    <Compile Include="Messages\Incoming\StoreOrganizationsAdjustment.cs" />
+    <Compile Include="Messages\Incoming\StoreRuleOrder.cs" />
+    <Compile Include="Messages\Incoming\YieldCurrentlyActiveOrganizations.cs" />
+    <Compile Include="Messages\Incoming\YieldInstrumentConfigurations.cs" />
+    <Compile Include="Messages\Incoming\YieldEmployees.cs" />
+    <Compile Include="Messages\InstanceMessage.cs" />
+    <Compile Include="Messages\Incoming\AcceptQuote.cs" />
+    <Compile Include="Messages\Incoming\CancelQuote.cs" />
+    <Compile Include="Messages\Incoming\CancelRFQ.cs" />
+    <Compile Include="Messages\Incoming\BrokerSessionDestroyed.cs" />
+    <Compile Include="Messages\Incoming\RespondInstrumentConfiguration.cs" />
+    <Compile Include="Messages\Incoming\YieldOrganizationAdjustments.cs" />
+    <Compile Include="Messages\Incoming\RespondVenueConfiguration.cs" />
+    <Compile Include="Messages\Incoming\GTNHeartbeat.cs" />
+    <Compile Include="Messages\CommunicationMessage.cs" />
+    <Compile Include="Messages\Outgoing\CreateGTNSessionRequest.cs" />
+    <Compile Include="Messages\Outgoing\DestroyGTNSessionRequest.cs" />
+    <Compile Include="Messages\Outgoing\MarketMakerDetectionResponse.cs" />
+    <Compile Include="Messages\Outgoing\MatchInstrumentRequest.cs" />
+    <Compile Include="Messages\Outgoing\QuoteActionFailed.cs" />
+    <Compile Include="Messages\Outgoing\QuoteActionSucceeded.cs" />
+    <Compile Include="Messages\Outgoing\RegisterNewTrade.cs" />
+    <Compile Include="Messages\Outgoing\RequestedActiveOrganizations.cs" />
+    <Compile Include="Messages\Outgoing\RequestedInstrumentConfigurations.cs" />
+    <Compile Include="Messages\Outgoing\RequestedOrganizationAdjustments.cs" />
+    <Compile Include="Messages\Outgoing\RFQActionFailed.cs" />
+    <Compile Include="Messages\Outgoing\RFQActionSucceeded.cs" />
+    <Compile Include="Messages\Outgoing\StatusUpdateForQuote.cs" />
+    <Compile Include="Messages\ProductVenueMessage.cs" />
+    <Compile Include="Messages\Incoming\DetectWhetherMarketMaker.cs" />
+    <Compile Include="Messages\Incoming\InstrumentMatchResponse.cs" />
+    <Compile Include="Messages\Incoming\NewQuote.cs" />
+    <Compile Include="Messages\Incoming\NewRFQ.cs" />
+    <Compile Include="Messages\Incoming\PassRFQ.cs" />
+    <Compile Include="Messages\Incoming\GTNUserSessionResponse.cs" />
+    <Compile Include="Messages\RequestFailed.cs" />
+    <Compile Include="Messages\RequestSucceeded.cs" />
+    <Compile Include="Messages\Incoming\StoreInstrumentConfiguration.cs" />
+    <Compile Include="Messages\Incoming\StoreBrokerConfiguration.cs" />
+    <Compile Include="Messages\Incoming\StartBrokerSession.cs" />
+    <Compile Include="Messages\Incoming\StopBrokerSession.cs" />
+    <Compile Include="Messages\Incoming\YieldBrokersHeartbeats.cs" />
+    <Compile Include="Messages\Incoming\YieldQuotesStatuses.cs" />
+    <Compile Include="Messages\Incoming\ApplyForRFQ.cs" />
+    <Compile Include="Messages\Outgoing\BrokerErrorHeartbeat.cs" />
+    <Compile Include="Messages\Outgoing\BrokerHeartbeat.cs" />
+    <Compile Include="Messages\Outgoing\GTNHeartbeatsSubscription.cs" />
+    <Compile Include="Messages\Outgoing\StatusUpdateForRFQ.cs" />
+    <Compile Include="Options\GRSPStatus.cs" />
+    <Compile Include="Options\GTNStatus.cs" />
+    <Compile Include="Options\PriceFormat.cs" />
+    <Compile Include="Options\PricePriority.cs" />
+    <Compile Include="Options\Price.cs" />
+    <Compile Include="Options\QuoteState.cs" />
+    <Compile Include="Options\RFQState.cs" />
+    <Compile Include="Options\Side.cs" />
+    <Compile Include="Options\SizeMagnitude.cs" />
+    <Compile Include="Options\UpdateAction.cs" />
+    <Compile Include="Options\GTNUserSessionStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
