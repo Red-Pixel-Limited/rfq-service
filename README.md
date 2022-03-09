@@ -1,7 +1,7 @@
 # RFQ Service #
 
 The service is designed as a component to enable RFQ trading. The motivation was to try to apply [actors](https://github.com/phatboyg/Stact) for this sort of challenge.    
-The project is not accokmplished and serves for demo purposes only.
+The project is not accomplished and serves for demo purposes only.
 
 
 ### Tooling ###
